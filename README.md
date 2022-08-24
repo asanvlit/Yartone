@@ -28,3 +28,4 @@
 * Confirm-codes for account verification or password-reset are sent by email using JavaMailSender
 * Confirmation codes have a **lifetime**, and their **hashed** value is stored in the database
 * Ability to resend the account verification code (for example, if the email wasn't delivered)
+* Expired verification codes, unused files are deleted using Spring Boot Scheduled tasks
