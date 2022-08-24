@@ -17,6 +17,7 @@
 ## Project functionality:
 
 * Create posts
+> The post indicates the type of work (for example, digital drawing). It's possible to additionally specify the number of hours spent, materials used, etc.
 * Likes on posts
 * Account Subscriptions
  
