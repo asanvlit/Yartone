@@ -1,4 +1,4 @@
-package ru.asanvlit.data.constant;
+package ru.asanvlit.constant;
 
 import ru.asanvlit.dto.request.SignUpRequest;
 

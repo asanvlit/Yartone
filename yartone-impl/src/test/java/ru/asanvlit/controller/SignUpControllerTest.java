@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.asanvlit.constant.YartoneApiConstants.API;
-import static ru.asanvlit.data.constant.YartoneTestConstants.DEFAULT_SIGN_UP_REQUEST;
+import static ru.asanvlit.constant.YartoneTestConstants.DEFAULT_SIGN_UP_REQUEST;
 
 @WebMvcTest(SignUpController.class)
 @AutoConfigureMockMvc(addFilters = false)

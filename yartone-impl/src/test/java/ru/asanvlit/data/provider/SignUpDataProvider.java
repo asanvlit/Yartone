@@ -9,7 +9,7 @@ import ru.asanvlit.dto.request.SignUpRequest;
 import java.util.stream.Stream;
 
 import static ru.asanvlit.constant.YartoneApiConstants.USERNAME_PATTERN;
-import static ru.asanvlit.data.constant.YartoneTestConstants.SIGN_UP_TEST_COUNT;
+import static ru.asanvlit.constant.YartoneTestConstants.SIGN_UP_TEST_COUNT;
 
 public class SignUpDataProvider implements ArgumentsProvider {
 
