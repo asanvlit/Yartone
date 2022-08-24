@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="004" author="Angelina Savincheva">
+        <createTable tableName="confirm_code">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_confirm_code"/>
+            </column>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE" defaultValueComputed="NOW()"/>
+            <column name="account_id" type="UUID"/>
+            <column name="code" type="UUID"/>
+            <column name="code_type" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="005" author="Angelina Savincheva">
+        <addForeignKeyConstraint baseTableName="confirm_code"
+                                 baseColumnNames="account_id"
+                                 constraintName="fk_code_account"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

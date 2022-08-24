@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="2022-08-04-create-tables.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-04-rename-columns.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-06-create-confirm-code-table.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-09-change-code-value-column-type.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-10-add-refresh-token-and-fixes.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-13-add-confirm-code-type.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-13-insert-into-confirm-code-type.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-13-change-value-confirm-code-type.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-15-modify-file-info-table.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-15-change-account-and-post-tables.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-16-add-post-attachment-unique-constraint.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-20-add-access-token-table.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-20-modify-oauth-access-token.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-20-add-access-token-column.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-21-modify-vk-oauth-access-token.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-21-change-vk-access-tokens-tables.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-21-rename-vk-group-access-token-table.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-21-modify-data-type-access-group-token.xml" relativeToChangelogFile="true"/>
+    <include file="2022-08-22-drop-access-tokens-tables.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

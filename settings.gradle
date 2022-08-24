@@ -1,0 +1,6 @@
+rootProject.name = 'Yartone'
+include 'yartone-api'
+include 'yartone-db'
+include 'yartone-impl'
+include 'yartone-db'
+

@@ -1,0 +1,25 @@
+apply plugin: 'maven-publish'
+
+bootJar.enabled = false
+jar.enabled = true
+
+ext {
+    validationVersion = '2.0.1.Final'
+    swagger2Version = '2.9.2'
+    swagger2ModelsAndAnotationsVersion = '1.5.21'
+    dataCommonsVersion = '2.4.5'
+    commonsLang3Version = '3.12.0'
+    openApiVersion = '1.6.9'
+    hibernateValidationVersion = '6.2.0.Final'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation "javax.validation:validation-api:${validationVersion}"
+    implementation "org.springframework.data:spring-data-commons:${dataCommonsVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+    implementation "org.springdoc:springdoc-openapi-ui:${openApiVersion}"
+    implementation "org.hibernate:hibernate-validator:${hibernateValidationVersion}"
+}
+

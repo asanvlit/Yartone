@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="007" author="Angelina Savincheva">
+        <addDefaultValue tableName="confirm_code" columnName="id" defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid"/>
+    </changeSet>
+    
+    <changeSet id="008" author="Angelina Savincheva">
+        <addNotNullConstraint tableName="post_attachment" columnName="post_id"/>
+        <addNotNullConstraint tableName="post_attachment" columnName="file_id"/>
+        <addNotNullConstraint tableName="account_post" columnName="account_id"/>
+        <addNotNullConstraint tableName="account_post" columnName="post_id"/>
+        <addNotNullConstraint tableName="confirm_code" columnName="account_id"/>
+    </changeSet>
+
+    <changeSet id="009" author="Angelina Savincheva">
+        <createTable tableName="account_refresh_token">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_refresh_token"/>
+            </column>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE" defaultValueComputed="NOW()"/>
+            <column name="account_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiry_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="account_refresh_token"
+                                 baseColumnNames="account_id"
+                                 constraintName="fk_refresh_token_account"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="019" author="Angelina Savincheva">
+        <dropColumn tableName="vk_oauth_access_token" columnName="token_type"/>
+        <renameColumn tableName="vk_oauth_access_token" oldColumnName="oauth_entity_id" newColumnName="vk_account_id"/>
+        <renameTable oldTableName="vk_oauth_access_token" newTableName="vk_account_access_token"/>
+
+        <createTable tableName="vk_oauth_group_access_token">
+            <column name="id" type="uuid" defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_vk_oauth_group_access_token"/>
+            </column>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE" defaultValueComputed="NOW()"/>
+            <column name="token" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uk_group_access_token"/>
+            </column>
+            <column name="vk_group_id" type="BIGINT"/>
+        </createTable>
+
+        <createTable tableName="vk_group_access_token_account">
+            <column name="vk_group_access_token_id" type="UUID"/>
+            <column name="account_id" type="UUID"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="vk_group_access_token_account"
+                                 baseColumnNames="vk_group_access_token_id"
+                                 constraintName="fk_vk_group_account"
+                                 referencedTableName="vk_oauth_group_access_token"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="vk_group_access_token_account"
+                                 baseColumnNames="account_id"
+                                 constraintName="fk_account_vk_group"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
+

@@ -1,0 +1,5 @@
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+
+test.token.valid=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImV4cCI6MjI4MzMyNDg3MCwiaWF0IjoxNjYxMjQ0ODcwLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSJ9.PdV8zy_x_XGwHxzYXwrjRjdbwoweqg-tXwsI1yJvL8o
+

@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="013" author="Angelina Savincheva">
+        <dropTable tableName="account_post"/>
+
+        <addColumn tableName="account">
+            <column name="photo_id" type="UUID"/>
+        </addColumn>
+
+        <addColumn tableName="post">
+            <column name="author_id" type="UUID"/>
+        </addColumn>
+
+        <addForeignKeyConstraint baseTableName="account"
+                                 baseColumnNames="photo_id"
+                                 constraintName="fk_account_photo"
+                                 referencedTableName="file_info"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="post"
+                                 baseColumnNames="author_id"
+                                 constraintName="fk_post_author"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

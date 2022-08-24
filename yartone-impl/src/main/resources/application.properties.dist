@@ -1,0 +1,83 @@
+# ===== DATASOURCE =====
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/yartone_rest_db
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ===== JPA =====
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL10Dialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
+
+# ===== MONGO =====
+
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=yartone_mongo
+spring.data.mongodb.uuid-representation=standard
+
+# ===== MINIO =====
+
+data.minio.bucket=yartone-minio
+data.minio.username=minioadmin
+data.minio.password=minioadmin
+data.minio.endpoint=http://127.0.0.1:9000
+
+# ===== LIQUIBASE =====
+
+spring.liquibase.change-log=classpath:changelog/database_changelog.xml
+
+# ===== WEB =====
+
+spring.mvc.throw-exception-if-no-handler-found=true
+spring.web.resources.add-mappings=false
+#spring.resources.add-mappings=false
+
+server.port=80
+
+# ===== MAIL =====
+
+# == Fake version ==
+#spring.mail.host=smtp.ethereal.email
+#spring.mail.port=587
+#spring.mail.username=monty.rice@ethereal.email
+#spring.mail.password=zjwW7wDXX8tVMrugVc
+#
+#spring.mail.properties.mail.smtp.starttls.enable=true
+#spring.mail.properties.mail.smtp.allow8bitmime=true
+#spring.mail.properties.mail.smtp.ssl.trust=smtp.ethereal.email
+#spring.mail.properties.mail.debug=true
+
+# ===== OAUTH =====
+
+vk.oauth.version=5.130
+vk.oauth.client.id=
+vk.oauth.client.secret=
+vk.oauth.redirect.url=http://localhost/api/oauth/vk
+vk.oauth.api.user.url=https://api.vk.com/method/users.get
+vk.oauth.api.token.url=https://oauth.vk.com/access_token
+vk.oauth.authorization.url=https://oauth.vk.com/authorize
+
+# ===== SECURITY =====
+
+jwt.secret=yh8jEtqb1
+jwt.expiration.access.millis=3600000
+jwt.expiration.refresh.mills=86400000
+
+# ===== LOGIC =====
+
+confirm-code.secret=n34gSbv9k
+
+# ===== MESSAGES =====
+
+messages.path=messages/messages
+
+# ===== TEMPLATES =====
+
+templates.path=templates/
+spring.freemarker.checkTemplateLocation=false

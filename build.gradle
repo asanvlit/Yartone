@@ -1,0 +1,51 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.9'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    group 'ru.ssavang'
+    version = '0.1'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = JavaVersion.VERSION_11
+
+    ext {
+        lombokVersion = '1.18.4'
+        lombokAnnotationProcessorVersion = '1.18.10'
+        lombokMapstructBindingVersion = '0.2.0'
+        jacksonDatatypeVersion = '2.9.4'
+    }
+
+    dependencies {
+        implementation "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        compileOnly ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDatatypeVersion}")
+
+        annotationProcessor "org.projectlombok:lombok:${lombokAnnotationProcessorVersion}"
+    }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
